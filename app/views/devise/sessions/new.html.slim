@@ -1,0 +1,34 @@
+#login-box.form-box
+  .header
+    | Sign In
+  / form[action="../../index.html" method="post"]
+  = form_for(resource, :as => resource_name, :url => session_path(resource_name) ) do |f|
+    .body.bg-gray
+      .form-group
+        = f.email_field :email, placeholder: 'Enter email', class: 'form-control'
+      .form-group
+        = f.password_field :password, placeholder: 'Password', class: 'form-control'
+      .form-group
+        = f.check_box :remember_me, checked: false
+        '   
+        = f.label :remember_me
+        /= f.label :remember_me
+        / input[type="checkbox" name="remember_me"]
+    .footer
+      button.btn.bg-olive.btn-block[type="submit"]
+        | Sign me in
+      / p
+      /   a[href="#"]
+      /     | I forgot my password
+      / a.text-center[href="register.html"]
+      /   | Register a new membership
+  .margin.text-center
+    span
+      | Sign in using social networks
+    br
+    / button.btn.bg-light-blue.btn-circle
+    /   i.fa.fa-facebook
+    / button.btn.bg-aqua.btn-circle
+    /   i.fa.fa-twitter
+    button.btn.bg-red.btn-circle
+      i.fa.fa-google-plus
