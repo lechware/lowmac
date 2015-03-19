@@ -9,8 +9,6 @@ class Users::BaseController < ApplicationController
   before_action :authenticate_user!
   before_filter :initialise_current_user
 
-  before_action :permit_resource_params
-
   # around_filter :audit_trail
 
   # before_filter :setup_account!, :except => [:edit,:update,:create,:new]
@@ -46,12 +44,6 @@ class Users::BaseController < ApplicationController
   #   User.current.account
   # end
 
-  def permit_resource_params
-    resource = controller_name.singularize.to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
-  end
-
   # Check resource params are present based on the current controller name.
   def check_resource_params(options = {})
 
@@ -82,12 +74,15 @@ class Users::BaseController < ApplicationController
 
     # Determine the name based on the current controller if not specified.
     resource_name = options[:name] || controller_name.singularize
+    logger.debug "Loading Resource for #{resource_name}"
 
     # Determine the class based on the resource name if not provided.
     resource_class = options[:class] || resource_name.classify.constantize
+    logger.debug "Loading Resource for resource class - #{resource_class}"
 
     resource = resource_class.find(params[:id])
-
+    logger.debug "Resource found for #{resource_name} - #{resource}"
+    
     # # Confirm current user has permission to view resource.
     # unless resource.account == current_account
     #   # TODO: log an audit event.

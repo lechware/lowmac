@@ -3,8 +3,6 @@ class BaseController < ApplicationController
   # Skip the before filter so we can insert it in the correctly place to preserve order.
   # skip_around_filter :audit_trail
 
-  before_action :permit_resource_params
-
   # around_filter :audit_trail
 
   layout 'application'
@@ -28,12 +26,6 @@ class BaseController < ApplicationController
   # Private Instance Methods
   #
   private
-
-  def permit_resource_params
-    resource = controller_name.singularize.to_sym
-    method = "#{resource}_params"
-    params[resource] &&= send(method) if respond_to?(method, true)
-  end
 
   # Check resource params are present based on the current controller name.
   def check_resource_params(options = {})
