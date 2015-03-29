@@ -30,6 +30,9 @@ Gem::Specification.new do |s|
   # For migrations
   s.add_dependency "mongoid_rails_migrations"
 
+  # Cancan
+  s.add_dependency "cancan"
+  
   # s.require_path = 'lib'
 
 end

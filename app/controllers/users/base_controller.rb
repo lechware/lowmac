@@ -8,7 +8,12 @@ class Users::BaseController < ApplicationController
   # FIXME: Enable Authentication for admin
   before_action :authenticate_user!
   before_filter :initialise_current_user
+  authorize_resource
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to request.referrer, alert: ::I18n.t('cancan.access.denied')
+  end
+  
   # around_filter :audit_trail
 
   # before_filter :setup_account!, :except => [:edit,:update,:create,:new]

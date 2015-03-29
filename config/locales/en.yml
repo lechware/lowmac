@@ -1,0 +1,4 @@
+en:
+  cancan:
+    access:
+      denied: "Access Denied: You do not have access to requested resource."

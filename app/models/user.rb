@@ -11,7 +11,9 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  field :admin,              type: Boolean, default: false
+  # field :admin,              type: Boolean, default: false
+
+  field :role, type: String, default: 'admin'
 
   ## Database authenticatable
   field :email,              type: String, default: ""
@@ -43,8 +45,12 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  def admin?
-    self.admin
+  # def admin?
+  #   self.admin
+  # end
+
+  def is?( requested_role)
+    self.role == requested_role.to_s
   end
 
   # FIXME: https://github.com/plataformatec/devise/issues/2949 - Remove below once fix has been shipped
