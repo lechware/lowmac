@@ -8,105 +8,12 @@ section.sidebar
       a[href="#"]
         i.fa.fa-circle.text-success
         |  Online
-  - can? :read, Program
-    form.sidebar-form[action="#" method="get"]
-      .input-group
-        input.form-control[type="text" name="q" placeholder="Search..."]
-        span.input-group-btn
-          button#search-btn.btn.btn-flat[type="submit" name="search"]
-            i.fa.fa-search
+  form.sidebar-form[action="#" method="get"]
+    .input-group
+      input.form-control[type="text" name="q" placeholder="Search..."]
+      span.input-group-btn
+        button#search-btn.btn.btn-flat[type="submit" name="search"]
+          i.fa.fa-search
   ul.sidebar-menu
     li.header MAIN NAVIGATION
-    li class=sidebar_class(:areas)
-      = link_to users_areas_path
-        i.fa.fa-dashboard
-        span
-          | Dashboard
-        small.badge.pull-right.bg-green
-          | new
-    - if can? :read, Program
-      li.treeview class=(sidebar_class(:program_list) || sidebar_class(:area_new))
-        a href="#"
-          i.fa.fa-laptop
-          span
-            = t 'areas'
-          i.fa.fa-angle-left.pull-right
-        ul.treeview-menu
-          - Area.all.each do |a|
-            li class=sidebar_class(:program_list)
-              a href=users_area_programs_path(a)
-                i.fa.fa-angle-double-right
-                = a.name
-          - if can? :create, Program
-            li class=sidebar_class(:area_new)
-              a href=new_users_area_path
-                i.fa.fa-angle-double-right
-                = t 'new'
-    
-    - if can? :manage, Client
-      li.treeview class=(sidebar_class(:client_list) || sidebar_class(:client_new))
-        a href="#"
-          i.fa.fa-users
-          span
-            = t 'clients'
-          i.fa.fa-angle-left.pull-right
-        ul.treeview-menu
-          li class=sidebar_class(:client_list)
-            a href=users_clients_path
-              i.fa.fa-angle-double-right
-              = t 'list'
-          li class=sidebar_class(:client_new)
-            a href=new_users_client_path
-              i.fa.fa-angle-double-right
-              = t 'new'
-
-    - if can? :manage, Rate
-      li.treeview class=(sidebar_class(:rate_list) || sidebar_class(:rate_new))
-        a href="#"
-          i.fa.fa-usd
-          span
-            | Rates
-          i.fa.fa-angle-left.pull-right
-        ul.treeview-menu
-          li class=sidebar_class(:rate_list)
-            a href=users_rates_path
-              i.fa.fa-angle-double-right
-              = t 'list'
-          li class=sidebar_class(:rate_new)
-            a href=new_users_rate_path
-              i.fa.fa-angle-double-right
-              = t 'new'
-
-    - if can? :manage, Worker
-      li.treeview class=(sidebar_class(:worker_list) || sidebar_class(:worker_new))
-        a href="#"
-          i.fa.fa-user-md
-          span
-            | Staff
-          i.fa.fa-angle-left.pull-right
-        ul.treeview-menu
-          li class=active?([users_workers_path])
-            a href=users_workers_path
-              i.fa.fa-angle-double-right
-              = t 'list'
-          li class=active?([new_users_worker_path])
-            a href=new_users_worker_path
-              i.fa.fa-angle-double-right
-              = t 'new'
-              
-    / li.treeview class=(sidebar_class(:invoices) || sidebar_class(:stat_report))
-    /   a href="#"
-    /     i.fa.fa-bar-chart-o
-    /     span
-    /       | Reporting
-    /     i.fa.fa-angle-left.pull-right
-    /   ul.treeview-menu
-    /     li class=sidebar_class(:stat_report)
-    /       a href=new_users_worker_path
-    /         i.fa.fa-angle-double-right
-    /         = t 'Stat Report'    
-    /     li class=sidebar_class(:invoices)
-    /       - unless Client.first.nil?
-    /         a href="users_client_invoices_path(client_id: Client.first.id.to_s)"
-    /           i.fa.fa-angle-double-right
-    /           = t 'invoices'
+    = render partial: 'layouts/_sidebar_menu_users.html.slim'
