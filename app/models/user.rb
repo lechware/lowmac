@@ -56,20 +56,12 @@ class User
   # FIXME: https://github.com/plataformatec/devise/issues/2949 - Remove below once fix has been shipped
   class << self
     def serialize_from_session(key,salt)
-      logger.info "KEY - #{key}"
-      logger.info "SALT - #{salt}"
       record = to_adapter.get(key[0]["$oid"])
-      logger.info "RECORD - #{record}"
-      # logger.debug "RECORD AUTH SALT - #{record.authenticatable_salt}"
       record if record && record.authenticatable_salt == salt
     end
 
     def serialize_from_cookie(key,salt)
-      logger.info "KEY - #{key}"
-      logger.info "SALT - #{salt}"
       record = to_adapter.get(key[0]["$oid"])
-      logger.info "RECORD - #{record}"
-      # logger.debug "RECORD AUTH SALT - #{record.authenticatable_salt}"
       record if record && record.authenticatable_salt == salt
     end
 
