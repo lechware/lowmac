@@ -1,0 +1,17 @@
+//= require jquery-ui
+//= require font-awesome
+//= require twitter/bootstrap
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require dataTables/extras/dataTables.responsive
+//= require fullcalendar
+//= require icheck/square/blue
+//= require icheck/minimal/blue
+//= require icheck/flat/blue
+//= require ionicons
+
+// Adminlte and corresponding css
+//= require admin-lte
+//= require skin-purple
+//= require bootstrap-timepicker
+//= require daterangepicker
+//= require bootstrap-slider

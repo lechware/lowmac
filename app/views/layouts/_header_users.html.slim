@@ -1,0 +1,29 @@
+header.main-header
+  a.logo href=users_areas_path
+    b
+      | Shift Manager
+  nav.navbar.navbar-static-top[role="navigation"]
+    a.sidebar-toggle[href="#" data-toggle="offcanvas" role="button"]
+      span.sr-only
+        | Toggle navigation
+    .navbar-custom-menu
+      ul.nav.navbar-nav
+        li.dropdown.user.user-menu
+          a.dropdown-toggle href="#" data-toggle="dropdown" aria-expanded="false"
+            = image_tag 'avatar.png', alt: 'User Image', class: 'user-image'
+            span.hidden-xs
+              = current_user.name
+          ul.dropdown-menu
+            li.user-header
+              = image_tag "avatar.png", alt: "User image", class: 'img-circle'
+              p
+                = current_user.name
+                small
+                  | Member since #{current_user.created_at}
+            li.user-footer
+              / .pull-left
+              /   a.btn.btn-default.btn-flat href=new_users_program_path
+              /     | Profile
+              .pull-right
+                = link_to destroy_user_session_path, method: :delete, class: 'btn btn-default btn-flat'
+                  | Sign out

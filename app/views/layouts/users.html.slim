@@ -1,0 +1,28 @@
+doctype html
+html
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+
+    title Admin
+    link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+    = analytics_init if Rails.env.production?
+    = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'users', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+  body.skin-purple
+    .wrapper
+      = render partial: 'layouts/header_users'
+      aside.main-sidebar
+        = render :partial => 'layouts/sidebar_users'
+      .content-wrapper
+        = render partial: 'layouts/flash_messages'
+        / FIXME: Bring scattered navigation into one
+        = render partial: 'navigation'
+        = yield
+      footer.main-footer
+        = render partial: 'layouts/footer_users'

@@ -1,0 +1,36 @@
+section.content-header
+  - unless flash.nil?
+    - flash.each do |type, message|
+      
+      / Skip unknown flash types.
+      - next unless ApplicationController::FLASH_TYPES.include?(type.to_sym)
+
+      - if type.to_s.downcase == 'success'
+        .alert.alert-success.alert-dismissable.fade.in
+          button.close data-dismiss="alert" aria-hidden="true"
+           ' &times;
+          | #{message.join(', ') rescue message}
+      - elsif type.to_s.downcase == 'notice'
+        .alert.alert-info.alert-dismissable.fade.in
+         button.close data-dismiss="alert" aria-hidden="true"
+           ' &times;
+         | #{message.join(', ') rescue message}
+      - elsif type.to_s.downcase == 'alert'
+        .alert.alert-danger.alert-dismissable.fade.in
+         button.close data-dismiss="alert" aria-hidden="true"
+           ' &times;
+         | #{message.join(', ') rescue message}
+      - elsif type.to_s.downcase == 'error'
+        .alert.alert-danger.alert-dismissable.fade.in
+          button.close data-dismiss="alert" aria-hidden="true"
+           ' &times;
+          | #{message.join(', ') rescue message}
+      - elsif type.to_s.downcase == 'warning'
+        .alert.alert-warning.alert-dismissable.fade.in
+          button.close data-dismiss="alert" aria-hidden="true"
+           ' &times;
+          | #{message.join(', ') rescue message}
+      - else
+        .alert.alert-info.alert-dismissable.fade.in
+          button.close data-dismiss="alert" aria-hidden="true" &times;
+          | #{message.join(', ') rescue message}
