@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   before_filter :initialise_locale
 
   helper_method :app_name
-
+  
+  helper :all 
+  
   #
   # Constants
   #
