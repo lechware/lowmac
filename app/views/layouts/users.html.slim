@@ -4,7 +4,7 @@ html
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
 
-    title Admin
+    title #{app_name}
     link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
     script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
     = analytics_init if Rails.env.production?
@@ -16,13 +16,12 @@ html
 
   body.skin-purple
     .wrapper
-      = render partial: 'layouts/header_users'
+      = render partial: 'header'
       aside.main-sidebar
-        = render :partial => 'layouts/sidebar_users'
+        = render partial: 'sidebar'
       .content-wrapper
-        = render partial: 'layouts/flash_messages'
-        / FIXME: Bring scattered navigation into one
+        = render partial: 'flash'
         = render partial: 'navigation'
         = yield
       footer.main-footer
-        = render partial: 'layouts/footer_users'
+        = render partial: 'footer'

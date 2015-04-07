@@ -1,34 +1,24 @@
-#login-box.form-box
-  .header
-    | Sign In
-  / form[action="../../index.html" method="post"]
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name) ) do |f|
-    .body.bg-gray
-      .form-group
-        = f.email_field :email, placeholder: 'Enter email', class: 'form-control'
-      .form-group
-        = f.password_field :password, placeholder: 'Password', class: 'form-control'
-      .form-group
-        = f.check_box :remember_me, checked: false
-        '   
-        = f.label :remember_me
-        /= f.label :remember_me
-        / input[type="checkbox" name="remember_me"]
-    .footer
-      button.btn.bg-olive.btn-block[type="submit"]
-        | Sign me in
-      / p
-      /   a[href="#"]
-      /     | I forgot my password
-      / a.text-center[href="register.html"]
-      /   | Register a new membership
-  .margin.text-center
-    span
-      | Sign in using social networks
-    br
-    / button.btn.bg-light-blue.btn-circle
-    /   i.fa.fa-facebook
-    / button.btn.bg-aqua.btn-circle
-    /   i.fa.fa-twitter
-    button.btn.bg-red.btn-circle
-      i.fa.fa-google-plus
+body.login-page
+  .login-box
+    .login-logo
+      b #{app_name}
+    .login-box-body
+      = render partial: 'users/base/flash'
+      p.login-box-msg Sign in to start your session
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name) ) do |f|
+        .form-group.has-feedback
+          = f.email_field :email, placeholer: 'Email', requried: true, class: 'form-control'
+          span.glyphicon.glyphicon-envelope.form-control-feedback
+        .form-group.has-feedback
+          = f.password_field :password, placeholder: 'Password', required: true, class: 'form-control'
+          span.glyphicon.glyphicon-lock.form-control-feedback
+          .social-auth-links.pull-right
+            = link_to 'Forgot Password', new_user_password_path
+        .row
+          .col-xs-8
+            .checkbox.iCheck
+              label
+                = f.check_box :remember_me, class: 'minimal'
+                |  Remember Me
+          .col-xs-4
+            button.btn.btn-primary.btn-block.btn-flat type="submit"  Sign In

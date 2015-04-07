@@ -1,5 +1,34 @@
 module ApplicationHelper
 
+  def heading
+    if current_page?(action: :new)
+      'New'
+    else
+      instance_variable_get("@#{controller_name.singularize}") || controller_name.camelize
+    end
+  end
+
+  def subheading
+    controller_name.singularize.camelize unless current_page?(action: :index)
+  end
+
+  def breadcrumbs
+    case
+    when current_page?(action: :index)
+      { controller_name.camelize => {path: nil, active: true} }
+    when current_page?(action: :new)
+      {
+        controller_name.camelize => {path: url_for(controller: controller_name, action: :index), active: false},
+        'New' => {path: nil, active: true}
+      }
+    else # show & edit
+      {
+        controller_name.camelize => {path: url_for(controller: controller_name, action: :index), active: false},
+        instance_variable_get("@#{controller_name.singularize}") => {path: nil, active: true}
+      }
+    end
+  end
+
   def active?(options = {})
     logger.debug "Setting active class for div with paths - #{options}"
 
