@@ -30,6 +30,9 @@ Gem::Specification.new do |s|
   # For migrations
   s.add_dependency "mongoid_rails_migrations"
 
+  # Running active jobs
+  s.add_dependency "delayed_job_mongoid"
+  
   # Cancan
   s.add_dependency "cancancan"
   

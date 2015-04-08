@@ -1,6 +1,7 @@
 require 'devise'
 require 'mongoid'
 require 'mongoid_rails_migrations'
+require 'delayed_job_mongoid'
 require 'cancancan'
 # require 'adminlte-rails'
 require 'coffee-rails'
