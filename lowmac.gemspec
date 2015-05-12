@@ -18,6 +18,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.0"
 
+  # HTML5 chart library
+  s.add_dependency "chart-js-rails"
+
   # Security
   s.add_dependency "devise"
 

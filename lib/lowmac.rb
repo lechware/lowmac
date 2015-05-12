@@ -1,3 +1,4 @@
+require 'chart-js-rails'
 require 'devise'
 require 'mongoid'
 require 'mongoid_rails_migrations'

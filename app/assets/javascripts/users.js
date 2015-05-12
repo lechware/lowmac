@@ -11,13 +11,13 @@
 //= require moment
 //= require fullcalendar
 //= require icheck
+//= require Chart
 
 // Adminlte and corresponding Plugins
 //= require admin-lte
 //= require daterangepicker
 //= require bootstrap-timepicker
 //= require bootstrap-slider
-
 
 $(function () {
   $('input').iCheck({
