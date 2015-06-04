@@ -71,6 +71,9 @@ Gem::Specification.new do |s|
   # Dependency for fullCalendar s.add_dependency
   s.add_dependency 'momentjs-rails'
 
+  # To show progress for page load
+  s.add_dependency 'pace-rails'
+
   # Use SCSS for stylesheets
   s.add_dependency 'sass-rails', '~> 5.0'
 

@@ -12,6 +12,7 @@
 //= require fullcalendar
 //= require icheck
 //= require Chart
+//= require pace/pace
 
 // Adminlte and corresponding Plugins
 //= require admin-lte
