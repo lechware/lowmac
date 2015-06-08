@@ -20,10 +20,10 @@
 //= require bootstrap-timepicker
 //= require bootstrap-slider
 
-$(function () {
-  $('input').iCheck({
-    checkboxClass: 'icheckbox_square-blue',
-    radioClass: 'iradio_flat-blue',
-    increaseArea: '20%' // optional
-  });
-});
+// $(function () {
+//   $('input').iCheck({
+//     checkboxClass: 'icheckbox_square-blue',
+//     radioClass: 'iradio_flat-blue',
+//     increaseArea: '20%' // optional
+//   });
+// });
