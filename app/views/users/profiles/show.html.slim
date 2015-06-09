@@ -9,8 +9,12 @@ section.content
         .box-body
           dl.dl-horizontal
             dt style="width: 15px;"
+              i.fa.fa-user-secret
+            dd style="margin-left: 80px;"
+              | #{@user.role.camelize}
+            dt style="width: 15px;"
               i.fa.fa-phone
-            dd style="margin-left: 40px;"
+            dd style="margin-left: 80px;"
               | #{@user.profile.phone}
         .box-footer
           = link_to 'Edit', edit_users_profile_path(current_user), class: 'btn btn-primary'
