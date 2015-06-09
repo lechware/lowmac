@@ -36,6 +36,12 @@ Gem::Specification.new do |s|
   # Running active jobs
   s.add_dependency "delayed_job_mongoid"
   
+  # For managing avatar
+  s.add_dependency "carrierwave-aws"
+
+  # Support for orm mapper
+  s.add_dependency "carrierwave-mongoid" #, require: "carrierwave/mongoid"
+  
   # Cancan
   s.add_dependency "cancancan"
   

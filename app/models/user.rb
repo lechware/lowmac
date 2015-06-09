@@ -6,6 +6,13 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  #
+  # Relations
+  #
+  embeds_one :profile, cascade_callbacks: true
+  accepts_nested_attributes_for :profile
+
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -1,13 +1,13 @@
 section.sidebar
   .user-panel
     .pull-left.image
-      = image_tag 'avatar.png', alt: "User Image", class: 'img-circle'
+      = image_tag "#{current_user.profile.avatar_url || 'avatar.png'}", alt: "User Image", class: 'img-circle'
     .pull-left.info
       p
-        | Hello, #{current_user.name}
-      a[href="#"]
-        i.fa.fa-circle.text-success
-        |  Online
+        | Hello, #{current_user.name.split.first}
+      / a[href="#"]
+      /   i.fa.fa-circle.text-success
+      /   |  Online
   form.sidebar-form[action="#" method="get"]
     .input-group
       input.form-control[type="text" name="q" placeholder="Search..."]

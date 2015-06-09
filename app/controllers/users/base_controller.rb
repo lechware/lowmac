@@ -85,7 +85,7 @@ class Users::BaseController < ApplicationController
     resource_class = options[:class] || resource_name.classify.constantize
     logger.debug "Loading Resource for resource class - #{resource_class}"
 
-    resource = resource_class.find(params[:id])
+    resource = resource_class.find(params[:id] || params[:format])
     logger.debug "Resource found for #{resource_name} - #{resource}"
     
     # # Confirm current user has permission to view resource.

@@ -1,0 +1,16 @@
+section.content
+  .row
+    .col-xs-12
+      .box.box-solid
+        .box-header.with-border
+          / i.fa.fa-text-width
+          h3.box-title
+            | Details
+        .box-body
+          dl.dl-horizontal
+            dt style="width: 15px;"
+              i.fa.fa-phone
+            dd style="margin-left: 40px;"
+              | #{@user.profile.phone}
+        .box-footer
+          = link_to 'Edit', edit_users_profile_path(current_user), class: 'btn btn-primary'
