@@ -8,13 +8,20 @@ section.content
             | Details
         .box-body
           dl.dl-horizontal
-            dt style="width: 15px;"
+            dt
+              | Email
+            dd
+              i.fa.fa-envelope-o
+              |  #{current_user.email}
+            dt
+              | User Role
+            dd
               i.fa.fa-user-secret
-            dd style="margin-left: 80px;"
-              | #{@user.role.camelize}
-            dt style="width: 15px;"
+              |  #{current_user.role.camelize}
+            dt
+              | Contact Number
+            dd
               i.fa.fa-phone
-            dd style="margin-left: 80px;"
-              | #{@user.profile.phone}
+              |  #{current_user.profile.phone}
         .box-footer
           = link_to 'Edit', edit_users_profile_path(current_user), class: 'btn btn-primary'

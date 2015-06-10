@@ -1,7 +1,7 @@
 section.sidebar
   .user-panel
     .pull-left.image
-      = image_tag "#{current_user.profile.avatar_url || 'avatar.png'}", alt: "User Image", class: 'img-circle'
+      = image_tag "#{current_user.profile.avatar.thumb.url || 'avatar.png'}", alt: "User Image", class: 'img-circle'
     .pull-left.info
       p
         | Hello, #{current_user.name.split.first}

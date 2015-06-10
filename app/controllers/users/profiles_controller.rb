@@ -23,7 +23,7 @@ class Users::ProfilesController < Users::BaseController
       :type       => User.model_name.human,
       :resource   => @user.name
     )
-    render action: :show, format: @user
+    redirect_to action: :show, format: @user
   rescue Mongoid::Errors::Validations => e
     notify_now :error, ::I18n.t('messages.resource.not_valid',
       :type     => User.model_name.human,

@@ -74,6 +74,9 @@ Gem::Specification.new do |s|
   # Bootstrap
   s.add_dependency 'less-rails-bootstrap'
 
+  # Used by Carrierwave to do image resizing
+  s.add_dependency "mini_magick"
+
   # Dependency for fullCalendar s.add_dependency
   s.add_dependency 'momentjs-rails'
 

@@ -6,7 +6,6 @@ require 'delayed_job_mongoid'
 require 'cancancan'
 require 'carrierwave-aws'
 require "carrierwave/mongoid"
-
 # require 'adminlte-rails'
 require 'coffee-rails'
 require 'font-awesome-rails'
