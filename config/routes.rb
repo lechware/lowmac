@@ -4,4 +4,12 @@ Rails.application.routes.draw do
   namespace :users do
     resource :profile
   end
+
+  #
+  # Vendor Integration Routes
+  #
+  namespace :webhooks do
+    resource :email, only: [:create] #cloudmailin
+  end
+
 end
