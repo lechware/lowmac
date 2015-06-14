@@ -71,6 +71,9 @@ Gem::Specification.new do |s|
   # This makes links to work as per earlier.
   s.add_dependency 'jquery-turbolinks'
 
+  # Pagination
+  s.add_dependency 'kaminari'
+  
   # Bootstrap
   s.add_dependency 'less-rails-bootstrap'
 
