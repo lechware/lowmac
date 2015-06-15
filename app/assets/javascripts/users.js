@@ -13,6 +13,7 @@
 //= require icheck
 //= require Chart
 //= require pace/pace
+//= require bootstrap-datepicker
 
 // Adminlte and corresponding Plugins
 //= require admin-lte
