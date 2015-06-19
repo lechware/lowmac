@@ -8,6 +8,8 @@ header.main-header
         | Toggle navigation
     .navbar-custom-menu
       ul.nav.navbar-nav
+        = render partial: 'header_menu'
+
         li.dropdown.user.user-menu
           a.dropdown-toggle href="#" data-toggle="dropdown" aria-expanded="false"
             = image_tag "#{current_user.profile.avatar.thumb.url || 'avatar.png'}", alt: 'User Image', class: 'user-image'
