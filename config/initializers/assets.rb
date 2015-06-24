@@ -8,4 +8,4 @@
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( lowmac.js lowmac.css mailer.css)
+Rails.application.config.assets.precompile += %w( lowmac.js lowmac.css mailer.css users.js users.css)

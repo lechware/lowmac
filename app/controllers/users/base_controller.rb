@@ -1,19 +1,17 @@
 class Users::BaseController < ApplicationController
 
-  # helper_method :current_account
-
-  # Skip the before filter so we can insert it in the correctly place to preserve order.
-  # skip_around_filter :audit_trail
-
-  # FIXME: Enable Authentication for admin
+  before_action :authenticate_user_from_token!
   before_action :authenticate_user!
-  before_filter :initialise_current_user
   load_and_authorize_resource
-
+    
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to request.referrer, alert: ::I18n.t('cancan.access.denied')
   end
   
+  helper_method :current_account
+
+  # Skip the before filter so we can insert it in the correctly place to preserve order.
+  # skip_around_filter :audit_trail
   # around_filter :audit_trail
 
   # before_filter :setup_account!, :except => [:edit,:update,:create,:new]
@@ -21,33 +19,25 @@ class Users::BaseController < ApplicationController
   layout 'users'
 
   #
-  # Public Class Methods
-  #
-  public
-
-  #
-  # Public Instance Methods
-  #
-  public
-
-  #
-  # Protected Instance Methods
-  #
-  protected
-  
-  #
   # Private Instance Methods
   #
   private
 
-  def initialise_current_user
-    return unless user_signed_in?
-    User.current = current_user
+  def authenticate_user_from_token!
+    user_email = params[:user_email].presence
+    user       = user_email && User.find_by(email: user_email)
+ 
+    # Notice how we use Devise.secure_compare to compare the token
+    # in the database with the token given in the params, mitigating
+    # timing attacks.
+    if user && Devise.secure_compare(user.authentication_token, params[:user_token])
+      sign_in user, store: false
+    end
   end
 
-  # def current_account
-  #   User.current.account
-  # end
+  def current_account
+    current_user.account
+  end
 
   # Check resource params are present based on the current controller name.
   def check_resource_params(options = {})
@@ -88,15 +78,15 @@ class Users::BaseController < ApplicationController
     resource = resource_class.find(params[:id] || params[:format])
     logger.debug "Resource found for #{resource_name} - #{resource}"
     
-    # # Confirm current user has permission to view resource.
-    # unless resource.account == current_account
-    #   # TODO: log an audit event.
+    # Confirm current user has permission to view resource.
+    unless resource.account == current_account
+      # TODO: log an audit event.
 
-    #   # SECURITY RISK: The user should not be able to distinguish between a
-    #   # non-existant resource and another user's resource. This way you can't
-    #   # probe to the system and determine another account's data.
-    #   raise Mongoid::Errors::DocumentNotFound.new(resource_class, :id => params[:id])
-    # end
+      # SECURITY RISK: The user should not be able to distinguish between a
+      # non-existant resource and another user's resource. This way you can't
+      # probe to the system and determine another account's data.
+      raise Mongoid::Errors::DocumentNotFound.new(resource_class, :id => params[:id])
+    end
 
     # Set an instance variable @resource_name to the resource.
     instance_variable_set("@#{resource_name}", resource)
@@ -117,7 +107,8 @@ class Users::BaseController < ApplicationController
     resource_name = options[:name] || controller_name.pluralize
 
     # Set an instance variable @name to contain the names for this user.
-    instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.all)
+    # instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.all)
+    instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.where(account: current_account))
   end
 
   # def setup_account!
@@ -153,15 +144,4 @@ class Users::BaseController < ApplicationController
       
   #   # end
   # end
-
-  # FIXME: CSRF token authenticity should not be overridden for JSON anymore in Rails 4?
-  # This is to avoid warning - Can't verify CSRF token authenticity.
-  # def verified_request?
-  #   if request.content_type == "application/json"
-  #     true
-  #   else
-  #     super()
-  #   end
-  # end
-
 end

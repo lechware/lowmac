@@ -7,8 +7,14 @@ class User
   include Mongoid::Timestamps
 
   #
+  # Callbacks
+  # 
+  before_save :ensure_authentication_token
+
+  #
   # Relations
   #
+  belongs_to :account
   embeds_one :profile, cascade_callbacks: true
   accepts_nested_attributes_for :profile
 
@@ -26,6 +32,7 @@ class User
   field :email,              type: String, default: ""
   field :name,               type: String, default: ""
   field :encrypted_password, type: String, default: ""
+  field :authentication_token, type: String, default: ""
 
   ## Recoverable
   field :reset_password_token,   type: String
@@ -60,17 +67,35 @@ class User
     self.role == requested_role.to_s
   end
 
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
   # FIXME: https://github.com/plataformatec/devise/issues/2949 - Remove below once fix has been shipped
-  class << self
-    def serialize_from_session(key,salt)
-      record = to_adapter.get(key[0]["$oid"])
-      record if record && record.authenticatable_salt == salt
-    end
+  # UPDATE: Apparently issue seems to be fixed, but leaving here for reference.
+  # class << self
+    # def serialize_from_session(key,salt)
+    #   logger.info "Session Serialization: key,salt - #{key} #{salt}"
+    #   record = to_adapter.get(key[0]["$oid"])
+    #   logger.info "Session Serialization: Record - #{record}"
+    #   record if record && record.authenticatable_salt == salt
+    # end
 
-    def serialize_from_cookie(key,salt)
-      record = to_adapter.get(key[0]["$oid"])
-      record if record && record.authenticatable_salt == salt
+    # def serialize_from_cookie(key,salt)
+    #   logger.info "Cookie Serialization: key,salt - #{key} #{salt}"
+    #   record = to_adapter.get(key[0]["$oid"])
+    #   logger.info "Cookie Serialization: Record - #{record}"
+    #   record if record && record.authenticatable_salt == salt
+    # end
+  # end
+  
+  private
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
     end
-
   end
 end
