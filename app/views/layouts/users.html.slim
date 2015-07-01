@@ -4,7 +4,7 @@ html
     meta[charset="utf-8"]
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
 
-    title #{current_account.name}
+    title #{current_account.nil? ? 'Create Account' : current_account.name}
     link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
     script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
     = analytics_init if Rails.env.production?
