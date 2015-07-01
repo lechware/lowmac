@@ -1,0 +1,18 @@
+.box.box-primary
+  .box-header
+    h3.box-title
+      | #{action_name.camelize} #{controller_name.singularize.camelize}
+  .box-body
+    .form-group
+      = f.label :name
+      = f.text_field :name, placeholder: 'Organisation Name...', required: true, class: 'form-control'
+      
+    .form-group
+      = f.label :business_number
+      = f.text_field :company_number, placeholder: 'ABN', required: true, class: 'form-control'
+
+    .form-group
+      = f.label :address
+      = f.text_field :address, id: 'autocomplete', placeholder: 'Address', required: true, class: 'form-control'
+  .box-footer
+    = submit_tag "Save", :class => "btn btn-success"

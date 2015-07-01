@@ -3,6 +3,7 @@ class Users::BaseController < ApplicationController
   before_action :authenticate_user_from_token!
   before_action :authenticate_user!
   load_and_authorize_resource
+  before_action :setup_account!
     
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to request.referrer, alert: ::I18n.t('cancan.access.denied')
@@ -14,9 +15,8 @@ class Users::BaseController < ApplicationController
   # skip_around_filter :audit_trail
   # around_filter :audit_trail
 
-  # before_filter :setup_account!, :except => [:edit,:update,:create,:new]
-
-  layout 'users'
+  layout 'users', except: :print
+  # layout 'print', only: :print
 
   #
   # Private Instance Methods
@@ -79,7 +79,7 @@ class Users::BaseController < ApplicationController
     logger.debug "Resource found for #{resource_name} - #{resource}"
     
     # Confirm current user has permission to view resource.
-    unless resource.account == current_account
+    unless (resource == current_account or resource.account == current_account)
       # TODO: log an audit event.
 
       # SECURITY RISK: The user should not be able to distinguish between a
@@ -111,37 +111,8 @@ class Users::BaseController < ApplicationController
     instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.where(account: current_account))
   end
 
-  # def setup_account!
-  #   case 
-  #   when current_user.account.nil?
-  #     if current_user.sign_in_count == 1
-  #       logger.debug "Account not present, first login so show edit account page."
-  #       notify :success, "Almost done! Please complete #{Account.model_name.human.downcase} setup before proceeding."
-  #       redirect_to new_users_settings_account_path # if current_user.account.nil?
-  #     else
-  #       logger.debug "Account not present, returning user so show edit account page."
-  #       notify :warning, "Please complete #{Account.model_name.human.downcase} setup before proceeding."
-  #       redirect_to (current_user.account.nil? ? new_users_settings_account_path : edit_users_settings_account_path) # if current_user.account.nil?
-  #     end
-  #   when Subscriber.by_account(current_user.account).count > current_user.account.allowance
-  #     logger.debug "Allowance Breached. Current allowance = #{current_user.account.allowance} & Subscriber count = #{Subscriber.by_account(current_user.account).count}"
-  #     notify :error, "You have more subscribers in your database than allowed under your plan. Please update subscription before proceeding."
-  #     redirect_to edit_users_settings_account_path # if current_user.account.nil?
-  #   end
-  
-
-  #   # if current_user.account.nil? or (Subscriber.by_account(current_user.account).count > current_user.account.allowance)
-  #   #   if current_user.sign_in_count == 1
-  #   #     notify :success, "Almost done! Please complete #{Account.model_name.human.downcase} setup before proceeding."
-  #   #     redirect_to new_users_settings_account_path # if current_user.account.nil?
-  #   #   elsif Subscriber.by_account(current_user.account).count > current_user.account.allowance
-  #   #     notify :error, "You have more subscribers in your database than allowed under your plan. Please update subscription before proceeding."
-  #   #     redirect_to edit_users_settings_account_path # if current_user.account.nil?
-  #   #   else
-  #   #     notify :warning, "Please complete #{Account.model_name.human.downcase} setup before proceeding."
-  #   #     redirect_to edit_users_settings_account_path # if current_user.account.nil?
-  #   #   end
-      
-  #   # end
-  # end
+  def setup_account!
+    return if (controller_name.eql?('accounts') and (action_name.eql?('new') or action_name.eql?('create')))
+    redirect_to new_users_account_path if current_user.account.nil?
+  end
 end

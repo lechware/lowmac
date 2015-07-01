@@ -1,0 +1,18 @@
+section.content
+  .row
+    .col-md-12
+      .box.box-primary
+        .box-body
+          strong
+            | Name: 
+          |   #{@account.name}
+          br
+          strong
+            | ABN: 
+          |   #{@account.company_number}
+          br
+          strong
+            | Address: 
+          |   #{@account.address}
+        .box-footer
+          = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary'    

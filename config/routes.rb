@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :users do
+    resource :account
     resource :profile
   end
 

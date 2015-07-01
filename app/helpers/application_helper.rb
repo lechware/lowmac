@@ -11,12 +11,12 @@ module ApplicationHelper
   end
 
   def subheading
-    return current_user.name if controller_name.eql?('profiles')
+    return current_user.name if (controller_name.eql?('profiles') or controller_name.eql?('accounts'))
     controller_name.singularize.camelize unless current_page?(action: :index)
   end
 
   def breadcrumbs
-    return [] if controller_name.eql?('profiles')
+    return [] if (controller_name.eql?('profiles') or controller_name.eql?('accounts'))
     case
     when current_page?(action: :index)
       { controller_name.camelize => {path: nil, active: true} }

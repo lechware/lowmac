@@ -9,14 +9,14 @@ Gem::Specification.new do |s|
   s.version     = Lowmac::VERSION
   s.authors     = ["Gaurav Cheema"]
   s.email       = ["gcheema@tecfoundary.com"]
-  s.homepage    = "https://github.com/tecfoundary/hicube"
+  s.homepage    = "https://github.com/tecfoundary/lowmac"
   s.summary     = "Base"
   s.description = "Base"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
 
-  s.add_dependency "rails", "~> 4.2.0"
+  s.add_dependency "rails", "~> 4.2.2"
 
   # Single Date Picker
   s.add_dependency "bootstrap-datepicker-rails"
@@ -88,6 +88,12 @@ Gem::Specification.new do |s|
 
   # To show progress for page load
   s.add_dependency 'pace-rails'
+
+  # Inline CSS for Email
+  s.add_dependency 'premailer-rails'
+
+  # Used by Premailer
+  s.add_dependency 'nokogiri'
 
   # Use SCSS for stylesheets
   s.add_dependency 'sass-rails', '~> 5.0'
