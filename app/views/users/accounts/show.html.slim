@@ -14,5 +14,14 @@ section.content
           strong
             | Address: 
           |   #{@account.address}
+          br
+          strong
+            | Phone: 
+          |   #{@account.phone}
+          br
+          strong
+            | Email: 
+          |   #{@account.email}
+          
         .box-footer
           = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary'    

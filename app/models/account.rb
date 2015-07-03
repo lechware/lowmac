@@ -20,7 +20,7 @@ class Account
   #
   # Validations
   #
-  validates_presence_of :name, :address, :company_number
+  validates_presence_of :name, :address, :company_number, :phone, :email
   validates_uniqueness_of :name,  :address, :company_number
 
   def to_s
