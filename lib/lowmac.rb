@@ -1,12 +1,13 @@
 require 'chart-js-rails'
 require 'bootstrap-datepicker-rails'
 require 'devise'
-require 'mongoid'
-require 'mongoid_rails_migrations'
-require 'delayed_job_mongoid'
+# require 'mongoid'
+# require 'mongoid_rails_migrations'
+# require 'delayed_job_mongoid'
+require 'delayed_job_active_record'
 require 'cancancan'
 require 'carrierwave-aws'
-require "carrierwave/mongoid"
+# require "carrierwave/mongoid"
 # require 'adminlte-rails'
 require 'coffee-rails'
 require 'font-awesome-rails'

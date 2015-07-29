@@ -31,19 +31,20 @@ Gem::Specification.new do |s|
   s.add_dependency "google-analytics-rails"
 
   # Mongoid
-  s.add_dependency "mongoid"
+  # s.add_dependency "mongoid"
 
   # For migrations
-  s.add_dependency "mongoid_rails_migrations"
+  # s.add_dependency "mongoid_rails_migrations"
 
   # Running active jobs
-  s.add_dependency "delayed_job_mongoid"
+  # s.add_dependency "delayed_job_mongoid"
+  s.add_dependency 'delayed_job_active_record'
   
   # For managing avatar
   s.add_dependency "carrierwave-aws"
 
   # Support for orm mapper
-  s.add_dependency "carrierwave-mongoid" #, require: "carrierwave/mongoid"
+  # s.add_dependency "carrierwave-mongoid" #, require: "carrierwave/mongoid"
   
   # Cancan
   s.add_dependency "cancancan"
@@ -103,6 +104,9 @@ Gem::Specification.new do |s|
 
   # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
   s.add_dependency 'turbolinks'
+
+  # For dev & testing
+  s.add_dependency 'sqlite3'
 
   # s.require_path = 'lib'
 
