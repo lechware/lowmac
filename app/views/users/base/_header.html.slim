@@ -12,6 +12,7 @@ header.main-header
 
         li.dropdown.user.user-menu
           a.dropdown-toggle href="#" data-toggle="dropdown" aria-expanded="false"
+            / FIXME: Enable avatar once it works
             / = image_tag "#{current_user.profile.avatar.thumb.url || 'avatar.png'}", alt: 'User Image', class: 'user-image'
             span.hidden-xs
               = current_user.name
