@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   namespace :users do
     resource :account
-    resource :profile
   end
 
   #
