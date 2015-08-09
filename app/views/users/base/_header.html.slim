@@ -12,12 +12,12 @@ header.main-header
 
         li.dropdown.user.user-menu
           a.dropdown-toggle href="#" data-toggle="dropdown" aria-expanded="false"
-            = image_tag "#{current_user.avatars.nil? ? 'avatar.png' : current_user.avatars.thumb.url}", alt: 'User Image', class: 'user-image'
+            = image_tag "#{current_user.avatars.blank? ? 'avatar.png' : current_user.avatar.thumb.url}", alt: 'User Image', class: 'user-image'
             span.hidden-xs
               = current_user.name
           ul.dropdown-menu
             li.user-header
-              = image_tag "#{current_user.avatars.nil? ? 'avatar.png' : current_user.avatars_url}", alt: "User image", class: 'img-circle'
+              = image_tag "#{current_user.avatar.blank? ? 'avatar.png' : current_user.avatar_url}", alt: "User image", class: 'img-circle'
               p
                 = current_user.name
                 small

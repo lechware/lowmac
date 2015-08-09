@@ -2,3 +2,8 @@ en:
   cancan:
     access:
       denied: "Access Denied: You do not have access to requested resource."
+
+  edit: "Edit Details"
+  show: "Details"
+  index: "All"
+  new: "Create"

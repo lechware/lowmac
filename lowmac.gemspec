@@ -67,6 +67,9 @@ Gem::Specification.new do |s|
   # Use jQuery as the JavaScript library
   s.add_dependency 'jquery-rails'
 
+  # Fileupload plugin
+  s.add_dependency 'jquery-fileupload-rails'
+  
   # Used by Adminlte theme on calendar page
   s.add_dependency 'jquery-ui-rails'
 

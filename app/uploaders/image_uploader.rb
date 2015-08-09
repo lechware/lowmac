@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class AvatarUploader < CarrierWave::Uploader::Base
+class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
@@ -32,7 +32,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # end
 
   version :thumb do
-    process :resize_to_fit => [215, 215]
+    process :resize_to_fit => [150, 150]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
