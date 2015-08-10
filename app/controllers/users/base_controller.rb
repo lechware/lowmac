@@ -85,13 +85,13 @@ class Users::BaseController < ApplicationController
       # SECURITY RISK: The user should not be able to distinguish between a
       # non-existant resource and another user's resource. This way you can't
       # probe to the system and determine another account's data.
-      raise Mongoid::Errors::DocumentNotFound.new(resource_class, :id => params[:id])
+      raise ActiveRecord::RecordNotFound #.new(resource_class, :id => params[:id])
     end
 
     # Set an instance variable @resource_name to the resource.
     instance_variable_set("@#{resource_name}", resource)
 
-    rescue Mongoid::Errors::DocumentNotFound => e
+  rescue ActiveRecord::RecordNotFound => e
     notify :error, ::I18n.t('messages.resource.not_found',
       :type     => resource_class.model_name.human,
       :criteria => resource_class.human_attribute_name(:id),

@@ -1,29 +1,9 @@
 class BaseController < ApplicationController
 
-  # Skip the before filter so we can insert it in the correctly place to preserve order.
-  # skip_around_filter :audit_trail
-
   # around_filter :audit_trail
 
   layout 'application'
 
-  #
-  # Public Class Methods
-  #
-  public
-
-  #
-  # Public Instance Methods
-  #
-  public
-
-  #
-  # Protected Instance Methods
-  #
-  protected
-  
-  #
-  # Private Instance Methods
   #
   private
 
@@ -76,7 +56,7 @@ class BaseController < ApplicationController
     # Set an instance variable @resource_name to the resource.
     instance_variable_set("@#{resource_name}", resource)
 
-    rescue Mongoid::Errors::DocumentNotFound => e
+  rescue ActiveRecord::RecordNotFound => e
     notify :error, ::I18n.t('messages.resource.not_found',
       :type     => resource_class.model_name.human,
       :criteria => resource_class.human_attribute_name(:id),
