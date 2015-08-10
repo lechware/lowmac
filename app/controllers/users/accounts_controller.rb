@@ -22,7 +22,7 @@ class Users::AccountsController < Users::BaseController
       )
       format.html { redirect_to action: :index, controller: :areas }
     end
-  rescue Mongoid::Errors::Validations => e
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique => e
     respond_to do |format|
       notify_now :error, ::I18n.t('messages.resource.not_valid',
         :type     => Account.model_name.human,
@@ -51,7 +51,7 @@ class Users::AccountsController < Users::BaseController
       :resource   => @account
     )
     render action: :show, id: @account
-  rescue Mongoid::Errors::Validations => e
+  rescue ActiveRecord::RecordInvalid, ActiveRecord::RecordNotUnique => e
     notify_now :error, ::I18n.t('messages.resource.not_valid',
       :type     => Account.model_name.human,
       :errors   => @account.errors.full_messages.to_sentence
