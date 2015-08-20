@@ -6,7 +6,7 @@ class Users::BaseController < ApplicationController
   before_action :setup_account!
     
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to request.referrer, alert: ::I18n.t('cancan.access.denied')
+    redirect_to request.referrer || root_path, alert: ::I18n.t('cancan.access.denied')
   end
   
   helper_method :current_account
