@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lowmac (2.0.4)
+    lowmac (2.0.11)
       bootstrap-datepicker-rails
       cancancan
       carrierwave-aws
@@ -9,6 +9,7 @@ PATH
       coffee-rails (~> 4.1.0)
       delayed_job_active_record
       devise
+      devise_invitable
       font-awesome-rails
       fullcalendar-rails
       google-analytics-rails
@@ -70,10 +71,10 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
-    arel (6.0.2)
-    aws-sdk (1.64.0)
-      aws-sdk-v1 (= 1.64.0)
-    aws-sdk-v1 (1.64.0)
+    arel (6.0.3)
+    aws-sdk (1.65.0)
+      aws-sdk-v1 (= 1.65.0)
+    aws-sdk-v1 (1.65.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
@@ -106,21 +107,24 @@ GEM
     delayed_job_active_record (4.0.3)
       activerecord (>= 3.0, < 5.0)
       delayed_job (>= 3.0, < 4.1)
-    devise (3.5.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    devise_invitable (1.5.2)
+      actionmailer (>= 3.2.6, < 5)
+      devise (>= 3.2.0)
     erubis (2.7.0)
-    execjs (2.5.2)
+    execjs (2.6.0)
     font-awesome-rails (4.4.0.0)
       railties (>= 3.2, < 5.0)
     fullcalendar-rails (2.3.1.0)
       jquery-rails (>= 3.1.1, < 5.0.0)
       momentjs-rails (~> 2.8, >= 2.8.4)
-    globalid (0.3.5)
+    globalid (0.3.6)
       activesupport (>= 4.1.0)
     google-analytics-rails (0.0.6)
     htmlentities (4.3.4)
@@ -161,14 +165,14 @@ GEM
       tilt
     less-rails-bootstrap (3.3.5.0)
       less-rails (>= 2.6, <= 2.8)
-    loofah (2.0.2)
+    loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
     mime-types (2.6.1)
-    mini_magick (4.2.9)
+    mini_magick (4.2.10)
     mini_portile (0.6.2)
-    minitest (5.7.0)
+    minitest (5.8.0)
     momentjs-rails (2.10.3)
       railties (>= 3.1)
     nokogiri (1.6.6.2)
@@ -198,7 +202,7 @@ GEM
       sprockets-rails
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
-    rails-dom-testing (1.0.6)
+    rails-dom-testing (1.0.7)
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
@@ -228,7 +232,7 @@ GEM
       activesupport (>= 3.1, < 5.0)
       railties (>= 3.1, < 5.0)
       slim (~> 3.0)
-    sprockets (3.2.0)
+    sprockets (3.3.2)
       rack (~> 1.0)
     sprockets-rails (2.3.2)
       actionpack (>= 3.0)

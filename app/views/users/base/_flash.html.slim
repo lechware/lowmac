@@ -1,5 +1,6 @@
 section.content-header
-  - unless flash.nil?
+  - unless flash.nil? or flash.empty?
+
     - flash.each do |type, message|
       
       / Skip unknown flash types.
@@ -35,9 +36,7 @@ section.content-header
           button.close data-dismiss="alert" aria-hidden="true" &times;
           | #{message.join(', ') rescue message}
 
-/ - unless (defined?(resource)).nil? or resource.errors.empty?
-/   - messages = resource.errors.full_messages.compact.reject(&:blank?)
-/   - if messages.count > 0
-/     .alert.alert-danger.alert-dismissable.fade.in
-/       button.close data-dismiss="alert" aria-hidden="true" &times;
-/       | #{messages.to_a.uniq.join(". ")}
+  - else
+    - if defined?(resource) and !resource.errors.empty?
+      .alert.alert-danger.alert-dismissable.fade.in
+        | #{resource.errors.full_messages.map { |msg| msg }.join}

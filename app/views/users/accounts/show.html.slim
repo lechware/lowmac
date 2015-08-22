@@ -3,25 +3,33 @@ section.content
     .col-md-12
       .box.box-primary
         .box-body
-          strong
-            | Name: 
-          |   #{@account.name}
-          br
-          strong
-            | ABN: 
-          |   #{@account.business_number}
-          br
-          strong
-            | Address: 
-          |   #{@account.address}
-          br
-          strong
-            | Phone: 
-          |   #{@account.phone}
-          br
-          strong
-            | Email: 
-          |   #{@account.email}
+          .row
+            .col-xs-2
+              = image_tag @account.logo.thumb, alt: 'logo'
+            .col-xs-10
+              strong
+                | Name: 
+              |   #{@account.name}
+              br
+              strong
+                | ABN: 
+              |   #{@account.business_number}
+              br
+              strong
+                | Address: 
+              |   #{@account.address}
+              br
+              strong
+                | Phone: 
+              |   #{@account.phone}
+              br
+              strong
+                | Email: 
+              |   #{@account.email}
+              br
+              strong
+                | Description: 
+              |   #{@account.description}
           
         .box-footer
           = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary'    

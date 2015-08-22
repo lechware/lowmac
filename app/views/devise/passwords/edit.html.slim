@@ -1,10 +1,9 @@
 body.login-page
   .login-box
     .login-logo
-      b> Shift
-      | Management
+      b #{app_name}
     .login-box-body
-      = render partial: 'flash'
+      = render partial: 'users/base/flash'
       p.login-box-msg Reset Password
       = form_for(resource, :as => resource_name, :url => password_path(resource_name), method: :put ) do |f|
         = f.hidden_field :reset_password_token

@@ -33,16 +33,14 @@ html xmlns="http://www.w3.org/1999/xhtml"
                             h2 style="color: #404040; font-weight: 300; margin: 0 0 12px 0; font-size: 24px; line-height: 30px; font-family: 'Helvetica neue', Helvetica, arial, sans-serif; "
                               | Hi #{@resource}, 
                             .organized_by style="color: #666666; font-weight: 400; font-size: 15px; line-height: 21px; font-family: 'Helvetica neue', Helvetica, arial, sans-serif; font-weight: 300; " 
-                              | We were notified that you or someone has requested a change of password for #{@resource.account} account on Shiftcare.
+                              | #{@resource.invited_by} has sent you an invite to join #{@resource.account} on Shiftcare.
                               p
                                 | Please click on link to 
-                                = link_to 'reset your password.', edit_password_url(@resource, reset_password_token: @token)
+                                = link_to  "accept your invitation.", accept_invitation_url(@resource, :invitation_token => @token)
                               p
-                                | If you did not request this, then please ignore this email and nothing will change.
-                              p
+                                br
                                 | Thankyou,
-                              p 
-                                | #{@resource.account} Team
+                                p #{@resource.account} Team
                                                   
                               
                             tr

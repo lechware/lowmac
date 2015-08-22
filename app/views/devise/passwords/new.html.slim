@@ -3,13 +3,14 @@ body.login-page
     .login-logo
       b #{app_name}
     .login-box-body
-      = render partial: 'flash'
-      p.login-box-msg Forgot your password?
+      = render partial: 'users/base/flash'
+      p.login-box-msg Forgot Password? Send Reset Instructions.
       = form_for(resource, :as => resource_name, :url => password_path(resource_name) ) do |f|
-        .form-group.has-feedback
-          = f.email_field :email, placeholer: 'Email', requried: true, class: 'form-control'
-          span.glyphicon.glyphicon-envelope.form-control-feedback
-        .form-group
-          button.btn.btn-primary.btn-block.btn-flat type="submit"  Send me reset password instructions
-      .social-auth-links.text-center
-        = link_to 'Log in', root_path
+        .input-group
+          .form-group.has-feedback
+            = f.email_field :email, placeholer: 'Email', requried: true, class: 'form-control'
+            span.glyphicon.glyphicon-envelope.form-control-feedback
+          .span.input-group-btn
+            button.btn.btn-primary.btn-flat type="submit"  Send
+      / .social-auth-links.text-center
+      /   = link_to 'Log in', root_path

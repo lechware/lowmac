@@ -1,6 +1,7 @@
 require 'chart-js-rails'
 require 'bootstrap-datepicker-rails'
 require 'devise'
+require 'devise_invitable'
 require 'delayed_job_active_record'
 require 'cancancan'
 require 'carrierwave-aws'
