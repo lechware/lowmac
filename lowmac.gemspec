@@ -43,9 +43,6 @@ Gem::Specification.new do |s|
   
   s.add_dependency 'coffee-rails', '~> 4.1.0'
 
-  # Rails Fontawesome support
-  s.add_dependency 'font-awesome-rails'
-
   # FullCalendar js by Adam Shaw - http://arshaw.com/fullcalendar/
   s.add_dependency 'fullcalendar-rails'
 
