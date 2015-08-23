@@ -7,6 +7,7 @@ html
     title #{current_account.nil? ? 'Create Account' : current_account.name}
     link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
     script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+    link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     = analytics_init if Rails.env.production?
     = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
