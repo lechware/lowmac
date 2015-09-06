@@ -61,8 +61,6 @@ Gem::Specification.new do |s|
   # Used by Adminlte theme on calendar page
   s.add_dependency 'jquery-ui-rails'
 
-  # s.add_dependency 'jquery-datatables-rails', '~> 3.3.0'
-
   # This makes links to work as per earlier.
   s.add_dependency 'jquery-turbolinks'
 

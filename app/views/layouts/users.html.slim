@@ -9,14 +9,19 @@ html
     script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
     link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"
-    link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"
-    link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css"
-    script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"
+    link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"
+
     = analytics_init if Rails.env.production?
     = stylesheet_link_tag 'users', media: 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'users', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    
+    /! Datatables
+    link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/dataTables.bootstrap.min.css"
+    script src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"
+    script src="//cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"
+    
     = csrf_meta_tags
 
   body.skin-purple
