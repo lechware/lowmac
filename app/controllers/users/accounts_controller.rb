@@ -62,6 +62,6 @@ class Users::AccountsController < Users::BaseController
   private
 
   def account_params
-    params.require(:account).permit(:name, :address, :company_number, :phone, :email, :logo, :description) 
+    params.require(:account).permit(:name, :address, :company_number, :phone, :email, :logo, :comms, :description) 
   end
 end

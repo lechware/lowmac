@@ -23,9 +23,16 @@
       = f.label :email
       = f.email_field :email, placeholder: 'Email', required: true, class: 'form-control'
   
+    .row
+      .col-xs-4
+        .form-group
+          = f.label :communication
+          = f.select :comms, ['Email', 'SMS'], {}, {class: 'form-control'}
+
     .form-group
       = f.label :description
       = f.text_area :description, rows: 4, class: 'form-control'  
+
 
     .form-group
       = f.label :logo
