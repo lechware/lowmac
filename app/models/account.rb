@@ -6,6 +6,10 @@ class Account < ActiveRecord::Base
 
   mount_uploader :logo, ImageUploader
 
+  has_one :setting
+
+  accepts_nested_attributes_for :setting, allow_destroy: true
+
   def to_s
     self.name
   end  
