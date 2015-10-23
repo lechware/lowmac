@@ -34,6 +34,7 @@ section.content
               strong
                 | Description: 
               |   #{@account.description}
+              = render partial: 'users/settings/details' rescue ''
           
         .box-footer
           = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary'    

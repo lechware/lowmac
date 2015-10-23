@@ -33,7 +33,7 @@
           = f.label :communication
           = f.select :comms, ['Email', 'SMS'], {}, {class: 'form-control'}
 
-    = render partial: 'users/settings/form', locals: {f: f}
+    = render partial: 'users/settings/form', locals: {f: f} rescue ''
 
     .form-group
       = f.label :logo
