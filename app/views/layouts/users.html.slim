@@ -35,7 +35,7 @@ html
         = render partial: 'sidebar'
       .content-wrapper
         = render partial: 'flash'
-        = render partial: 'navigation'
+        = render partial: 'navigation' unless browser.mobile?
         = yield
       footer.main-footer
         = render partial: 'footer'

@@ -1,5 +1,6 @@
 require 'chart-js-rails'
 require 'bootstrap-datepicker-rails'
+require 'browser'
 require 'devise'
 require 'devise_invitable'
 require 'delayed_job_active_record'

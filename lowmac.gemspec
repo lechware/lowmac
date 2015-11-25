@@ -21,6 +21,8 @@ Gem::Specification.new do |s|
   # Single Date Picker
   s.add_dependency "bootstrap-datepicker-rails"
 
+  s.add_dependency "browser"
+  
   # HTML5 chart library
   s.add_dependency "chart-js-rails"
 
