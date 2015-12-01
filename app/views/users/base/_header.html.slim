@@ -1,8 +1,11 @@
 header.main-header
   - unless browser.mobile?
-    a.logo href=users_root_path
-      b
-        | #{app_name}
+    a.logo href=users_root_path style="#{browser.tablet? ? 'padding-left: 10px;' : ''}"
+      - if browser.tablet?
+        = image_tag 'logo.png', size: '32x32'
+      - else
+        b
+          | #{app_name}
   nav.navbar.navbar-static-top[role="navigation"]
     a.sidebar-toggle[href="#" data-toggle="offcanvas" role="button"]
       span.sr-only

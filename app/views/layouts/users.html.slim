@@ -28,7 +28,7 @@ html
 
     = csrf_meta_tags
 
-  body.skin-purple
+  body.skin-purple class=(browser.tablet? ? 'sidebar-collapse sidebar-mini' : '')
     .wrapper
       = render partial: 'header'
       aside.main-sidebar
