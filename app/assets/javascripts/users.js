@@ -18,6 +18,8 @@
 //= require bootstrap-timepicker
 //= require bootstrap-slider
 
+//= require users/search
+
 // $(function () {
 //   $('input').iCheck({
 //     checkboxClass: 'icheckbox_square-blue',

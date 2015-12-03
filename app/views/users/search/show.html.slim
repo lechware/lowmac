@@ -1,0 +1,38 @@
+section.content
+  .box
+    .box-body
+      table#search-results-table.table.table-bordered.table-hover
+        thead
+          tr
+            th Type
+            th Name
+            th Last Updated
+            
+        tbody
+          - if defined? @results
+            - @results.each do |r|
+              / Implement result_path in Child app helper
+              tr id=result_path(r)
+                td= r.class.name
+                td= r
+                td #{time_ago_in_words(r.updated_at)} ago
+
+    /id="#{url_for([:users, r])}"
+        
+          / - @clients.each do |c|
+          /   tr id="#{users_client_path(c)}"
+          /     td Client
+          /     td= c
+          /     td #{time_ago_in_words(c.updated_at)} ago
+          / - @users.each do |c|
+          /   tr id="#{users_user_path(c)}"
+          /     td User
+          /     td= c
+          /     td #{time_ago_in_words(c.updated_at)} ago
+          / - @programs.each do |c|
+          /   / Do not search programs with empty shifts
+          /   - unless c.shifts.empty? 
+          /     tr id="#{users_area_program_path(id: c, area_id: c.area.id)}"
+          /       td Program
+          /       td= c
+          /       td #{time_ago_in_words(c.updated_at)} ago

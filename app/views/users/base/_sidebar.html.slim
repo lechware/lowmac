@@ -8,12 +8,13 @@ section.sidebar
       / a[href="#"]
       /   i.fa.fa-circle.text-success
       /   |  Online
-  form.sidebar-form[action="#" method="get"]
-    .input-group
-      input.form-control[type="text" name="q" placeholder="Search..."]
-      span.input-group-btn
-        button#search-btn.btn.btn-flat[type="submit" name="search"]
-          i.fa.fa-search
+  - if can? :show, Search
+    form.sidebar-form[action=users_search_path method="get"]
+      .input-group
+        input.form-control[type="text" name="q" placeholder="Search..."]
+        span.input-group-btn
+          button#search-btn.btn.btn-flat[type="submit"]
+            i.fa.fa-search
   ul.sidebar-menu
     li.header MAIN NAVIGATION
     = render partial: 'sidebar_menu'

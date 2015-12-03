@@ -1,0 +1,16 @@
+section.content-header
+  h1
+    |  Search Results
+    small
+      | #{@count} matches found.
+  ol.breadcrumb
+    li
+      a href=users_root_path
+        i.fa.fa-dashboard
+        |  Home
+    / - breadcrumbs.each do |k,v|
+    /   li class=v[:active]
+    /     - if v[:path].nil?
+    /       = t(k)
+    /     - else
+    /       = link_to t(k), v[:path]
