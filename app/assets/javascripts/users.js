@@ -21,10 +21,17 @@
 
 //= require users/search
 
-// $(function () {
-//   $('input').iCheck({
-//     checkboxClass: 'icheckbox_square-blue',
-//     radioClass: 'iradio_flat-blue',
-//     increaseArea: '20%' // optional
-//   });
-// });
+
+// Turbolinks issue - https://github.com/almasaeed2010/AdminLTE/issues/563
+$(document).ready(function() {
+  $.AdminLTE.layout.activate();
+});
+
+$(document).on('page:load', function() {
+  var o;
+  o = $.AdminLTE.options;
+  if (o.sidebarPushMenu) {
+    $.AdminLTE.pushMenu.activate(o.sidebarToggleSelector);
+  }
+  $.AdminLTE.layout.activate();
+});
