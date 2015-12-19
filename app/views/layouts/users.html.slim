@@ -30,6 +30,9 @@ html
 
     = csrf_meta_tags
 
+    link href="apple-touch-icon.png" rel="apple-touch-icon"
+    link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed"
+
   body.skin-purple class=(browser.tablet? ? 'sidebar-collapse sidebar-mini' : '')
     .wrapper
       = render partial: 'header'
