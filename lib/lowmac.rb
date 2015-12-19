@@ -1,3 +1,4 @@
+require 'add-to-homescreen-rails'
 require 'chart-js-rails'
 require 'bootstrap-datepicker-rails'
 require 'browser'

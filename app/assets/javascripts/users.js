@@ -5,6 +5,7 @@
 //= require turbolinks
 //= require twitter/bootstrap
 
+//= require addtohomescreen
 //= require moment
 //= require fullcalendar
 //= require icheck

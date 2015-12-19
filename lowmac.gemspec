@@ -18,6 +18,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.2"
 
+  # Allows to add web-page to home screen
+  s.add_dependency "add-to-homescreen-rails"
+
   # Single Date Picker
   s.add_dependency "bootstrap-datepicker-rails"
 
