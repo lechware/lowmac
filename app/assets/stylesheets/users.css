@@ -1,21 +1,25 @@
-//= require jquery-ui
-//= require twitter/bootstrap
-//= require fullcalendar
-//= require fullcalendar/scheduler.min
-//= require icheck/square/blue
-//= require icheck/minimal/blue
-//= require icheck/flat/blue
-//= require ionicons
-//= require pace/orange/pace-theme-minimal
-//= require bootstrap-datepicker3
-//= require addtohomescreen
+/*
+ *
+ *= require jquery-ui
+ *= require twitter/bootstrap
+ *= require fullcalendar
+ *= require fullcalendar/scheduler.min
+ *= require icheck/square/blue
+ *= require icheck/minimal/blue
+ *= require icheck/flat/blue
+ *= require ionicons
+ *= require pace/orange/pace-theme-minimal
+ *= require bootstrap-datepicker3
+ *= require addtohomescreen
+ *= require bootstrap-wysihtml5
 
-// Adminlte and corresponding css
-//= require admin-lte
-//= require skin-purple
-//= require bootstrap-timepicker
-//= require daterangepicker
-//= require bootstrap-slider
+ * Adminlte and corresponding css
+ *= require admin-lte
+ *= require skin-purple
+ *= require bootstrap-timepicker
+ *= require daterangepicker
+ *= require bootstrap-slider
 
-// Bootstrap flavoured select2
-//= require select2-bootstrap.min
+ * Bootstrap flavoured select2
+ *= require select2-bootstrap.min
+ */

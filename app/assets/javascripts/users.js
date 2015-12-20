@@ -13,6 +13,7 @@
 //= require Chart
 //= require pace/pace
 //= require bootstrap-datepicker
+//= require bootstrap-wysihtml5
 
 // Adminlte and corresponding Plugins
 //= require admin-lte
@@ -26,6 +27,11 @@
 // Turbolinks issue - https://github.com/almasaeed2010/AdminLTE/issues/563
 $(document).ready(function() {
   $.AdminLTE.layout.activate();
+
+  $('.wysihtml5').each(function(i, elem) {
+    $(elem).wysihtml5();
+  });
+  
 });
 
 $(document).on('page:load', function() {

@@ -1,6 +1,7 @@
 require 'add-to-homescreen-rails'
 require 'chart-js-rails'
 require 'bootstrap-datepicker-rails'
+require 'bootstrap-wysihtml5-rails'
 require 'browser'
 require 'devise'
 require 'devise_invitable'
