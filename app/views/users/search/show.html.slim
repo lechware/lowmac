@@ -6,6 +6,8 @@ section.content
           tr
             th Type
             th Name
+            th Email
+            th Phone
             th Last Updated
             
         tbody
@@ -15,6 +17,10 @@ section.content
               tr id=result_path(r)
                 td= r.class.name
                 td= r
+                td
+                  = r.email if r.is_a?(Client) || r.is_a?(User)
+                td
+                  = r.mobile if r.is_a?(Client) || r.is_a?(User)
                 td #{time_ago_in_words(r.updated_at)} ago
 
     /id="#{url_for([:users, r])}"

@@ -1,5 +1,5 @@
 $ ->
-  $('#search-results-table').DataTable()
+  $('#search-results-table').DataTable pageLength: 100
 
   $('#search-results-table tbody').on 'click', 'tr', ->
     redirection = $(this).attr('id')
