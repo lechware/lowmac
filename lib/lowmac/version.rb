@@ -1,3 +1,3 @@
 module Lowmac
-  VERSION = "2.2.5"
+  VERSION = "2.2.4"
 end
