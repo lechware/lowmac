@@ -8,6 +8,7 @@
 //= require addtohomescreen
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/scheduler.min
 //= require icheck
 //= require Chart
 //= require pace/pace
