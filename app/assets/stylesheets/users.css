@@ -16,6 +16,7 @@
  * Adminlte and corresponding css
  *= require admin-lte
  *= require skin-purple
+ *= require skin-blue
  *= require bootstrap-timepicker
  *= require daterangepicker
  *= require bootstrap-slider

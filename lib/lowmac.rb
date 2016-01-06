@@ -26,5 +26,12 @@ require 'slim-rails'
 require 'turbolinks'
 require "lowmac/engine"
 
+require 'helpers/configuration'
+
 module Lowmac
+
+  extend Configuration
+
+  define_setting :skin
+  define_setting :layout
 end
