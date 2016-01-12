@@ -29,9 +29,12 @@ $(document).ready(function() {
   $.AdminLTE.layout.activate();
 
   $('.wysihtml5').each(function(i, elem) {
-    $(elem).wysihtml5();
+    $(elem).wysihtml5({
+      toolbar: {
+        "color": true
+      }
+    });
   });
-  
 });
 
 $(document).on('page:load', function() {
