@@ -51,7 +51,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'coffee-rails', '~> 4.1.0'
 
   # FullCalendar js by Adam Shaw - http://arshaw.com/fullcalendar/
-  s.add_dependency 'fullcalendar-rails'
+  s.add_dependency 'fullcalendar-rails', '2.5.0.0'
 
   # For checkboxes & radioboxes with Adminlte
   s.add_dependency 'icheck-rails'
