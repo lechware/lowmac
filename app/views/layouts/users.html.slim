@@ -30,17 +30,18 @@ html
 
     = csrf_meta_tags
 
-    link href="apple-touch-icon.png" rel="apple-touch-icon"
-    link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed"
+    = render partial: 'layouts/favicon'
+    / link href="apple-touch-icon.png" rel="apple-touch-icon"
+    / link href="apple-touch-icon.png" rel="apple-touch-icon-precomposed"
 
-  body class=(browser.tablet? ? "#{Lowmac.skin} sidebar-collapse sidebar-mini" : "#{Lowmac.skin}")
+  body class=(browser.device.tablet? ? "#{Lowmac.skin} sidebar-collapse sidebar-mini" : "#{Lowmac.skin}")
     .wrapper
       = render partial: 'header'
       aside.main-sidebar
         = render partial: 'sidebar'
       .content-wrapper
         = render partial: 'flash'
-        = render partial: 'navigation' unless browser.mobile?
+        = render partial: 'navigation' unless browser.device.mobile?
         = yield
       footer.main-footer
         = render partial: 'footer'

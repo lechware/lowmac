@@ -25,29 +25,29 @@ Gem::Specification.new do |s|
   s.add_dependency "bootstrap-datepicker-rails"
 
   s.add_dependency "bootstrap-wysihtml5-rails"
-  
+
   s.add_dependency "browser"
-  
+
   # HTML5 chart library
   s.add_dependency "chart-js-rails"
 
   # Security
   s.add_dependency "devise"
 
-  s.add_dependency "devise_invitable"
+  s.add_dependency "devise_invitable", '~> 1.6.0'
 
   # Google Analytics
   s.add_dependency "google-analytics-rails"
 
   s.add_dependency 'delayed_job_active_record'
-  
+
   # For managing avatar
   s.add_dependency "carrierwave-aws"
-  
+
   # Cancan
   s.add_dependency "cancancan"
-  
-  
+
+
   s.add_dependency 'coffee-rails', '~> 4.1.0'
 
   # FullCalendar js by Adam Shaw - http://arshaw.com/fullcalendar/
@@ -56,7 +56,7 @@ Gem::Specification.new do |s|
   # For checkboxes & radioboxes with Adminlte
   s.add_dependency 'icheck-rails'
 
-  # Ion icons 
+  # Ion icons
   s.add_dependency 'ionicons-rails'
 
   # Use jQuery as the JavaScript library
@@ -64,7 +64,7 @@ Gem::Specification.new do |s|
 
   # Fileupload plugin
   s.add_dependency 'jquery-fileupload-rails'
-  
+
   # Used by Adminlte theme on calendar page
   s.add_dependency 'jquery-ui-rails'
 
@@ -73,7 +73,7 @@ Gem::Specification.new do |s|
 
   # Pagination
   s.add_dependency 'kaminari'
-  
+
   # Bootstrap
   s.add_dependency 'less-rails-bootstrap'
 

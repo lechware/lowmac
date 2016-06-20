@@ -1,7 +1,7 @@
 header.main-header
-  - unless browser.mobile?
-    a.logo href=users_root_path style="#{browser.tablet? ? 'padding-left: 10px;' : ''}"
-      - if browser.tablet?
+  - unless browser.device.mobile?
+    a.logo href=users_root_path style="#{browser.device.tablet? ? 'padding-left: 10px;' : ''}"
+      - if browser.device.tablet?
         = image_tag 'logo.png', size: '32x32'
       - else
         b

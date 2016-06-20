@@ -37,4 +37,8 @@ section.content
               = render partial: 'users/settings/details' rescue ''
           
         .box-footer
-          = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary'    
+          = link_to :back, class: 'btn btn-default btn-flat' do
+            i.fa.fa-arrow-left
+            |  Back
+
+          = link_to 'Edit', edit_users_account_path(@account), class: 'btn btn-primary btn-flat pull-right'    
