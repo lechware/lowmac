@@ -25,7 +25,7 @@ header.main-header
               p
                 = current_user.name
                 small
-                  | Member since #{current_user.created_at}
+                  | Member since #{distance_of_time_in_words_to_now(current_user.created_at)}
             li.user-footer
               .pull-left
                 a.btn.btn-default.btn-flat href=users_profile_path(current_user)
