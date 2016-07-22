@@ -8,7 +8,7 @@ html
     
     title #{current_account.nil? ? 'Create Account' : current_account.name}
     link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"
-    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"
+    script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&key=#{ENV['GMAPS_API_KEY']}"
     link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
     link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"
     link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css"
