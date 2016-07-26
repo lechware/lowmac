@@ -99,6 +99,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'slim-rails'
 
   # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-  s.add_dependency 'turbolinks'
+  s.add_dependency 'turbolinks', '~> 2.5.3'
 
 end
