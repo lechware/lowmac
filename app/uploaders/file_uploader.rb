@@ -38,7 +38,7 @@ class FileUploader < CarrierWave::Uploader::Base
 
   # White list of extensions which are allowed to be uploaded.
   def extension_white_list
-    %w(doc docx xls xlsx csv pdf)
+    %w(doc docx xls xlsx csv pdf txt)
   end
 
   # Override the filename of the uploaded files:
