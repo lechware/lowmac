@@ -18,16 +18,16 @@ section.sidebar
   ul.sidebar-menu
     li.header MAIN NAVIGATION
     = render partial: 'sidebar_menu'
-    - if can? :manage, Account
-      - if current_page?(edit_users_account_path(current_user.account)) or current_page?(users_account_path(current_user.account))
-        li.active
-          = link_to users_account_path(current_user.account)
-            i.fa.fa-cogs
-            span
-              | Settings
-      - else
-        li
-          = link_to users_account_path(current_user.account)
-            i.fa.fa-cogs
-            span
-              | Settings
+    / - if can? :manage, Account
+    /   - if current_page?(edit_users_account_path(current_user.account)) or current_page?(users_account_path(current_user.account))
+    /     li.active
+    /       = link_to users_account_path(current_user.account)
+    /         i.fa.fa-cogs
+    /         span
+    /           | Settings
+    /   - else
+    /     li
+    /       = link_to users_account_path(current_user.account)
+    /         i.fa.fa-cogs
+    /         span
+    /           | Settings
