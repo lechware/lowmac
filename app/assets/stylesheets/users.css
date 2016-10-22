@@ -7,6 +7,7 @@
  *= require icheck/square/blue
  *= require icheck/minimal/blue
  *= require icheck/flat/blue
+ *= require icheck/flat/red
  *= require ionicons
  *= require pace/orange/pace-theme-minimal
  *= require bootstrap-datepicker3
@@ -25,9 +26,9 @@
  *= require select2-bootstrap.min
  */
 
-/*  
-  Ideally bootstrap wysihtml5 should have it but css is missing these, 
-  so when content is displayed without editor coloring goes missing 
+/*
+  Ideally bootstrap wysihtml5 should have it but css is missing these,
+  so when content is displayed without editor coloring goes missing
 */
 .wysiwyg-color-black {color: black;}
 .wysiwyg-color-silver {color: silver;}
@@ -46,4 +47,3 @@
 .wysiwyg-color-teal {color: teal;}
 .wysiwyg-color-aqua {color: aqua;}
 .wysiwyg-color-orange {color: orange;}
-

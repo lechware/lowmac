@@ -4,12 +4,13 @@ class Users::BaseController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
   before_action :setup_account!
-    
+
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to request.referrer || root_path, alert: ::I18n.t('cancan.access.denied')
   end
-  
-  helper_method :current_account
+
+  helper_method :current_account, :period_to_dates
+
 
   # Skip the before filter so we can insert it in the correctly place to preserve order.
   # skip_around_filter :audit_trail
@@ -26,10 +27,9 @@ class Users::BaseController < ApplicationController
   def authenticate_user_from_token!
     user_email = params[:user_email].presence
     user       = user_email && User.find_by(email: user_email)
- 
+
     # Notice how we use Devise.secure_compare to compare the token
-    # in the database with the token given in the params, mitigating
-    # timing attacks.
+    # in the database with the token given in the params, mitigating timing attacks.
     if user && Devise.secure_compare(user.authentication_token, params[:user_token])
       sign_in user, store: false
     end
@@ -77,7 +77,7 @@ class Users::BaseController < ApplicationController
 
     resource = resource_class.find(params[:id] || params[:format])
     logger.debug "Resource found for #{resource_name} - #{resource}"
-    
+
     # Confirm current user has permission to view resource.
     unless (resource == current_account or resource.account == current_account)
       # TODO: log an audit event.
@@ -109,6 +109,12 @@ class Users::BaseController < ApplicationController
     # Set an instance variable @name to contain the names for this user.
     # instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.all)
     instance_variable_set("@#{resource_name}", resource_name.singularize.camelize.constantize.where(account: current_account))
+  end
+
+  def period_to_dates(period = nil)
+    logger.info "Period String to dates for period => #{period}"
+    return Date.today, Date.today if period.blank?
+    return Date.strptime("#{period.split.first}", "%d/%m/%Y"), Date.strptime("#{period.split.last}", "%d/%m/%Y")
   end
 
   def setup_account!
